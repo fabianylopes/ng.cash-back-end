@@ -7,9 +7,17 @@ import { signInSchema, signUpSchema } from "../schemas/ userSchema.js";
 
 const userRouter = Router();
 
-userRouter.post('/sign-up', validateSchemaMiddleware(signUpSchema), userController.SignUp);
-userRouter.post('/sign-in', validateSchemaMiddleware(signInSchema), userController.SignIn);
-userRouter.delete('/sign-out', validateTokenMiddleware, userController.signOut);
-userRouter.get('/findAccountId', userController.findAccountId);
+userRouter.post(
+  "/sign-up",
+  validateSchemaMiddleware(signUpSchema),
+  userController.SignUp
+);
+userRouter.post(
+  "/sign-in",
+  validateSchemaMiddleware(signInSchema),
+  userController.SignIn
+);
+userRouter.delete("/sign-out", validateTokenMiddleware, userController.signOut);
+userRouter.get("/findAccountId", userController.findAccountId);
 
 export default userRouter;

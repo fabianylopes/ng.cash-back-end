@@ -16,7 +16,7 @@ export async function create(req: Request, res: Response) {
   const body = req.body;
   const debitedAccountId = res.locals.userToken.accountId;
 
-  const accountId = await userRepository.findIdByUsername(body.username);
+  const accountId = await userRepository.findByUsername(body.username);
   const creditedAccountId = accountId.accountId;
   const value = parseFloat(body.value);
 

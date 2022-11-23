@@ -47,19 +47,3 @@ export async function getTransactions(accountId: number) {
     },
   });
 }
-
-export async function getCashOutTransactions(debitedAccountId: number) {
-  return prisma.transaction.findMany({
-    where: {
-      debitedAccountId,
-    }
-  });
-}
-
-export async function getCashInTransactions(creditedAccountId: number) {
-  return prisma.transaction.findMany({
-    where: {
-      creditedAccountId,
-    }
-  });
-}
